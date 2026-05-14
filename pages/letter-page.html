@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Ray!</title>
+  <link rel="stylesheet" href="../css/letter-page.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="icon" type="image/png" href="./Assets/Icons/favicon.png">
+</head>
+
+<body>
+<script>
+  if (sessionStorage.getItem("birthdayAccess") !== "granted") {
+    window.location.href = "../";
+  }
+</script>
+  <div class="background-image">
+    <img src="../Assets/img/Global/background-2.png" alt="">
+  </div>
+
+  <div class="letter-label">
+    <h1 class="inspiration-regular">My Letter <br>to You</h1>
+  </div>
+
+  <a href="/pages/letter.html" class="letter-link" aria-label="Open letter">
+    <div class="letter">
+      <img class="back-letter" src="../Assets/img/letter/back-letter.png" alt="">
+      <img class="top-letter" src="../Assets/img/letter/top-letter.png" alt="">
+
+      <div class="letter-card">
+        <p class="inspiration-regular">A letter to my girl</p>
+      </div>
+
+      <img class="front-letter" src="../Assets/img/letter/front-letter.png" alt="">
+
+      <div class="click-text">Click me</div>
+    </div>
+  </a>
+
+
+</body>
+</html>

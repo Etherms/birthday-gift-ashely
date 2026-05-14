@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100dvh;
+    overflow: hidden;
+    position: relative;
+}
+
+.background-image {
+    width: 100vw;
+    height: 100dvh;
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.letter-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 90px 20px 20px;
+    animation: fadeDown 1.2s ease forwards;
+}
+
+.letter-label h1 {
+    font-size: 80px;
+    color: white;
+    margin: 0;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.letter-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 400px;
+    position: absolute;
+    left: 38%;
+    bottom: 35px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.letter {
+    position: relative;
+    width: 400px;
+    height: 280px;
+    z-index: 1;
+    transform: rotate(21deg);
+    animation: letterEntrance 1.1s ease forwards, softFloat 3s ease-in-out 1.2s infinite;
+    transition: transform 0.3s ease;
+}
+
+.letter-link:hover .letter {
+    transform: rotate(21deg) scale(1.04);
+}
+
+.back-letter,
+.top-letter,
+.front-letter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    pointer-events: none;
+}
+
+.back-letter {
+    z-index: 1;
+}
+
+.top-letter {
+    z-index: 2;
+    animation: flapWiggle 2.5s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+.front-letter {
+    z-index: 4;
+}
+
+.letter-card {
+    width: 95%;
+    height: 200px;
+    background: #ffffff;
+    margin: auto;
+    z-index: 3;
+    left: 2.5%;
+    position: absolute;
+    top: 260px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    padding: 35px 28px;
+    animation: paperSlideUp 1.4s ease 0.5s forwards;
+}
+
+.letter-card p {
+    margin: 0;
+    color: #c7445e;
+    font-size: 26px;
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+.click-text {
+    position: absolute;
+    bottom: -45px;
+    left: 49%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color:  rgb(167, 10, 10);
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    animation: pulseClick 1.3s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+@keyframes paperSlideUp {
+    from {
+    top: 260px;
+    opacity: 0;
+    }
+    to {
+    top: 80px;
+    opacity: 1;
+    }
+}
+
+@keyframes letterEntrance {
+    from {
+    opacity: 0;
+    transform: rotate(21deg) translateY(80px) scale(0.9);
+    }
+    to {
+    opacity: 1;
+    transform: rotate(21deg) translateY(0) scale(1);
+    }
+}
+
+@keyframes softFloat {
+    0%, 100% {
+    translate: 0 0;
+    }
+    50% {
+    translate: 0 -12px;
+    }
+}
+
+@keyframes flapWiggle {
+    0%, 100% {
+    transform: rotateX(0deg);
+    }
+    50% {
+    transform: rotateX(10deg);
+    }
+}
+
+@keyframes pulseClick {
+    0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    }
+    50% {
+    transform: translateX(-50%) scale(1.12);
+    opacity: 0.75;
+    }
+}
+
+@keyframes fadeDown {
+    from {
+    opacity: 0;
+    transform: translateY(-25px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .letter-label {
+    padding-top: 70px;
+    }
+
+    .letter-label h1 {
+    font-size: 72px;
+    }
+
+    .letter-link {
+    width: 400px;
+    bottom: 60px;
+    }
+
+    .letter {
+    width: 400px;
+    height: 220px;
+    }
+
+    .back-letter,
+    .top-letter,
+    .front-letter {
+    width: 400px;
+    }
+
+    .letter-card {
+    height: 205px;
+    }
+
+    .letter-card p {
+    font-size: 40px;
+    }
+
+    .click-text {
+    font-size: 16px;
+    bottom: 147px;
+    }
+}

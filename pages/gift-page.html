@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ray!</title>
+<link rel="icon" type="image/png" href="./Assets/Icons/favicon.png">
+<link rel="stylesheet" href="../css/gift-page.css">
+<link rel="stylesheet" href="../css/global.css">
+
+</head>
+
+<body>
+  <script>
+  if (sessionStorage.getItem("birthdayAccess") !== "granted") {
+    window.location.href = "../";
+  }
+</script>
+
+<div class="sparkles">
+  <span class="sparkle">✦</span>
+  <span class="sparkle">✧</span>
+  <span class="sparkle">✦</span>
+  <span class="sparkle">✧</span>
+  <span class="sparkle">✦</span>
+  <span class="sparkle">✧</span>
+</div>
+
+<section class="gift-page">
+  <div class="gift-page__content">
+
+    <h1 class="gift-page__title inspiration-regular">These are for you</h1>
+
+    <div class="gift-container">
+
+      <a href="./letter-page.html" class="gift-value">
+        <img src="../Assets/img/Global/envelope.png" alt="Letter">
+        <p class="gift-label">Letter</p>
+      </a>
+
+      <a href="./flower-page.html" class="gift-value">
+        <img src="../Assets/img/Global/flower.png" alt="Flower">
+        <p class="gift-label">Flower</p>
+      </a>
+
+      <a href="./cake-page.html" class="gift-value">
+        <img src="../Assets/img/Global/strawberry-cake.png" alt="Cake">
+        <p class="gift-label">Cake</p>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

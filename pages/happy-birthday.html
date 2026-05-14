@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Ray!</title>
+  <link rel="icon" type="image/png" href="./Assets/Icons/favicon.png">
+  <link rel="stylesheet" href="../css/happy-birthday.css">
+  <link rel="stylesheet" href="../css/global.css">
+  
+</head>
+
+<body>
+  <script>
+  if (sessionStorage.getItem("birthdayAccess") !== "granted") {
+    window.location.href = "../";
+  }
+</script>
+
+  <!-- BACKGROUND -->
+  <div class="background-image">
+    <img src="../Assets/img/Global/background.png" alt="">
+  </div>
+
+  <!-- FLOATING HEARTS -->
+  <div class="hearts">
+    <span>♡</span>
+    <span>❤</span>
+    <span>♡</span>
+    <span>❤</span>
+    <span>♡</span>
+    <span>❤</span>
+    <span>♡</span>
+    <span>❤</span>
+    <span>♡</span>
+    <span>❤</span>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="greeting-container">
+
+    <div class="top-container">
+
+      <div class="date italianno-regular">
+        <p>05-24-26</p>
+      </div>
+
+      <h1 class="happy-birthday-text inspiration-regular">
+        Happy Birthday Ray!
+      </h1>
+
+      <p class="small-message gideon-roman-regular">
+        I hope this little gift will make you happy
+      </p>
+
+    </div>
+
+    <div class="bottom-container">
+      <a href="./gift-page.html" class="link-page">
+        Click Here
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
