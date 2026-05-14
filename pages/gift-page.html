@@ -3,19 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Ray!</title>
-<link rel="icon" type="image/png" href="./Assets/Icons/favicon.png">
+<title>Happy Birthday Ashley!</title>
+
+  <link rel="icon" type="image/png" href="./Assets/Icons/favicon.png" />
 <link rel="stylesheet" href="../css/gift-page.css">
 <link rel="stylesheet" href="../css/global.css">
-
 </head>
 
 <body>
-  <script>
-  if (sessionStorage.getItem("birthdayAccess") !== "granted") {
-    window.location.href = "../";
-  }
-</script>
+
+<div class="floating-blobs">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
 <div class="sparkles">
   <span class="sparkle">✦</span>
@@ -29,23 +30,45 @@
 <section class="gift-page">
   <div class="gift-page__content">
 
-    <h1 class="gift-page__title inspiration-regular">These are for you</h1>
+    <p class="mini-title">Choose one</p>
+
+    <h1 class="gift-page__title inspiration-regular">
+      Made For You
+    </h1>
 
     <div class="gift-container">
 
-      <a href="./letter-page.html" class="gift-value">
-        <img src="../Assets/img/Global/envelope.png" alt="Letter">
-        <p class="gift-label">Letter</p>
+      <a href="./letter-page.html" class="gift-card">
+        <div class="gift-card__circle">
+          <img src="../Assets/img/Global/letter.png" alt="Letter">
+        </div>
+
+        <div class="gift-card__content">
+          <h2>Letter</h2>
+          <p>Little things I wanted to tell you.</p>
+        </div>
       </a>
 
-      <a href="./flower-page.html" class="gift-value">
-        <img src="../Assets/img/Global/flower.png" alt="Flower">
-        <p class="gift-label">Flower</p>
+      <a href="./flower-page.html" class="gift-card">
+        <div class="gift-card__circle">
+          <img src="../Assets/img/Global/photocard.png" alt="Album">
+        </div>
+
+        <div class="gift-card__content">
+          <h2>Album</h2>
+          <p>Little memories and moments saved for you.</p>
+        </div>
       </a>
 
-      <a href="./cake-page.html" class="gift-value">
-        <img src="../Assets/img/Global/strawberry-cake.png" alt="Cake">
-        <p class="gift-label">Cake</p>
+      <a href="./cake-page.html" class="gift-card">
+        <div class="gift-card__circle">
+          <img src="../Assets/img/Global/camera.jpg" alt="Recording">
+        </div>
+
+        <div class="gift-card__content">
+          <h2>Recording</h2>
+          <p>A voice message made especially for you.</p>
+        </div>
       </a>
 
     </div>

@@ -2,267 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Ray!</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="./Assets/Icons/favicon.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html,
-    body{
-      width:100%;
-      min-height:100dvh;
-      overflow:hidden;
-    }
-
-    body{
-      background:
-      radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(255,220,225,0.18), transparent 30%),
-      #AD1919;
-
-      display:flex;
-      justify-content:center;
-      align-items:center;
-
-      padding:20px;
-
-      font-family:"Cormorant Garamond", serif;
-      position:relative;
-    }
-
-    /* floating hearts */
-
-    .heart{
-      position:absolute;
-      color:rgba(255,255,255,0.12);
-      animation:floatHeart linear infinite;
-      pointer-events:none;
-    }
-
-    .heart:nth-child(1){
-      left:10%;
-      font-size:20px;
-      animation-duration:10s;
-    }
-
-    .heart:nth-child(2){
-      left:28%;
-      font-size:28px;
-      animation-duration:13s;
-      animation-delay:2s;
-    }
-
-    .heart:nth-child(3){
-      left:50%;
-      font-size:24px;
-      animation-duration:12s;
-      animation-delay:1s;
-    }
-
-    .heart:nth-child(4){
-      left:74%;
-      font-size:18px;
-      animation-duration:15s;
-      animation-delay:3s;
-    }
-
-    .heart:nth-child(5){
-      left:88%;
-      font-size:30px;
-      animation-duration:11s;
-    }
-
-    @keyframes floatHeart{
-
-      from{
-        transform:translateY(110vh) rotate(0deg);
-        opacity:0;
-      }
-
-      20%{
-        opacity:1;
-      }
-
-      to{
-        transform:translateY(-120px) rotate(360deg);
-        opacity:0;
-      }
-    }
-
-    .password-box{
-      width:100%;
-      max-width:380px;
-
-      background:rgba(255,255,255,0.15);
-
-      backdrop-filter:blur(12px);
-
-      padding:42px 26px;
-
-      text-align:center;
-
-      box-shadow:
-      0 25px 50px rgba(0,0,0,0.22);
-
-      position:relative;
-      z-index:2;
-
-      animation:fadeUp 1s ease forwards;
-    }
-
-    .title{
-      font-family:"Parisienne", cursive;
-      font-size:64px;
-      color:white;
-      font-weight:400;
-      line-height:0.95;
-      margin-bottom:14px;
-    }
-
-    .subtitle{
-      color:rgba(255,255,255,0.92);
-      font-size:22px;
-      line-height:1.3;
-      margin-bottom:28px;
-    }
-
-    .password-input{
-      width:100%;
-      height:58px;
-
-      border:none;
-      outline:none;
-
-      background:rgba(255,255,255,0.92);
-
-      padding:0 18px;
-
-      font-size:22px;
-      font-family:"Cormorant Garamond", serif;
-
-      color:#AD1919;
-
-      margin-bottom:18px;
-    }
-
-    .password-input::placeholder{
-      color:#AD1919;
-      opacity:0.6;
-    }
-
-    .enter-btn{
-      width:100%;
-      height:58px;
-
-      border:none;
-      outline:none;
-
-      background:#fff8f8;
-
-      color:#AD1919;
-
-      font-size:24px;
-      font-weight:700;
-
-      cursor:pointer;
-
-      font-family:"Cormorant Garamond", serif;
-
-      transition:.3s ease;
-    }
-
-    .enter-btn:hover{
-      transform:translateY(-2px);
-      opacity:.9;
-    }
-
-    .error-text{
-      color:#ffe0e0;
-      margin-top:16px;
-      font-size:18px;
-      min-height:24px;
-    }
-
-    @keyframes fadeUp{
-
-      from{
-        opacity:0;
-        transform:translateY(25px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0px);
-      }
-    }
-
-    @media(max-width:380px){
-
-      .title{
-        font-size:54px;
-      }
-
-      .subtitle{
-        font-size:20px;
-      }
-
-      .password-input{
-        font-size:20px;
-      }
-    }
-
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Ashley!</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="icon" type="image/png" href="./Assets/Icons/favicon.png" />
 </head>
 
 <body>
+  <section class="greeting-landing">
+    <div class="floating-heart heart-one">❤</div>
+    <div class="floating-heart heart-two">❤</div>
+    <div class="floating-heart heart-three">❤</div>
 
-  <!-- hearts -->
+    <div class="greeting-container">
+      <div class="letter-content">
+        <p class="small-text">You received something special</p>
 
-  <div class="heart">♡</div>
-  <div class="heart">♡</div>
-  <div class="heart">♡</div>
-  <div class="heart">♡</div>
-  <div class="heart">♡</div>
+        <h1 class="greeting-title inspiration-regular">
+          Happy Birthday!
+        </h1>
 
-  <main class="password-box">
+        <div class="envelope-wrap">
+          <img
+            src="../Assets/img/Global/pink-envelope.png"
+            alt="Invitation Image"
+            class="invitation-mail"
+          />
 
-    <h1 class="title">
-      Happy Birthday
-    </h1>
+          <button
+            class="link-button"
+            onclick="window.location.href='./pages/happy-birthday.html'"
+            aria-label="Open birthday letter"
+          >
+            <span></span>
+          </button>
+        </div>
 
-    <p class="subtitle">
-      Enter the password to continue ♡
-    </p>
-    <p class="subtitle">Hint: Anniversary month date <br> ex:05-24</p>
-
-    <input
-      type="password"
-      id="passwordInput"
-      class="password-input"
-      placeholder="Enter password"
-    >
-
-    <button class="enter-btn" id="enterBtn">
-      Enter
-    </button>
-
-    <p class="error-text" id="errorText"></p>
-
-  </main>
-
-<script defer src="./js/password.js"></script>
-
+        <p class="invitation-label">Click the seal to open</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

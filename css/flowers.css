@@ -18,7 +18,7 @@ body{
     background:
     radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 30%),
     radial-gradient(circle at bottom right, rgba(255,220,225,0.18), transparent 30%),
-    #AD1919;
+    #FFC5D3;
 
     font-family:"Cormorant Garamond", serif;
 
@@ -101,7 +101,7 @@ body{
     font-family:"Parisienne", cursive;
     font-size:20px;
     text-align:center;
-    color:white;
+    color:#0e0e0e;
     line-height:0.95;
     font-weight:400;
     margin-bottom:10px;
@@ -111,7 +111,7 @@ body{
 
 .subtitle{
     text-align:center;
-    color:rgba(255,255,255,0.95);
+    color:rgba(0, 0, 0, 0.95);
     font-size:22px;
     margin-bottom:34px;
 
@@ -230,12 +230,12 @@ body{
     margin:40px auto 0;
 
     text-decoration:none;
-    color:white;
+    color:#0e0e0e;
 
     font-size:22px;
     font-weight:700;
 
-    border-bottom:2px solid rgba(255,255,255,0.5);
+    border-bottom:2px solid rgba(0,0,0,0.5);
 
     padding-bottom:4px;
 

@@ -1,140 +1,163 @@
 .greeting-landing {
-  background: #AD1919;
-  height: 100dvh;
+  background: #FFC5D3;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 24px;
   position: relative;
   overflow: hidden;
-}
-
-.greeting-landing::before,
-.greeting-landing::after {
-  content: "❤";
-  position: absolute;
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 120px;
-  animation: floatHeart 6s ease-in-out infinite;
-}
-
-.greeting-landing::before {
-  top: 10%;
-  left: 8%;
-}
-
-.greeting-landing::after {
-  bottom: 8%;
-  right: 10%;
-  animation-delay: 1.5s;
 }
 
 .greeting-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: min(920px, 94vw);
+  min-height: min(720px, 90dvh);
   background: #ffffff;
-  width: 90vw;
-  min-height: 90dvh;
-  margin: auto;
+  display: grid;
+  place-items: center;
   position: relative;
   overflow: hidden;
-  animation: containerEntrance 1s ease forwards;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+  animation: containerEntrance 900ms ease forwards;
+}
+
+.greeting-container::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background: rgba(255, 197, 211, 0.55);
+  border-radius: 50%;
+  top: -120px;
+  right: -120px;
+}
+
+.greeting-container::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: rgba(173, 25, 25, 0.08);
+  border-radius: 50%;
+  bottom: -90px;
+  left: -90px;
+}
+
+.letter-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 620px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.small-text {
+  color: #AD1919;
+  font-size: clamp(14px, 3vw, 18px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeDown 800ms ease forwards;
+  animation-delay: 200ms;
 }
 
 .greeting-title {
-  font-size: clamp(64px, 12vw, 120px);
-  color: #AD1919;
-  margin-bottom: 20px;
+  font-size: clamp(58px, 11vw, 118px);
+  line-height: 0.9;
+  color: #0e0e0e;
+  margin: 0 0 28px;
   opacity: 0;
-  animation: fadeDown 1s ease forwards;
-  animation-delay: 0.3s;
+  animation: fadeDown 900ms ease forwards;
+  animation-delay: 350ms;
+}
+
+.envelope-wrap {
+  position: relative;
+  width: min(420px, 78vw);
+  margin: 0 auto 22px;
+  opacity: 0;
+  animation: envelopeEntrance 900ms ease forwards, envelopeFloat 3.2s ease-in-out infinite;
+  animation-delay: 650ms, 1.7s;
 }
 
 .invitation-mail {
-  max-width: 402px;
-  width: 75vw;
+  width: 100%;
   height: auto;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: envelopeEntrance 1s ease forwards, envelopeFloat 3s ease-in-out infinite;
-  animation-delay: 0.7s, 1.8s;
-}
-
-.invitation-label {
-  font-size: clamp(18px, 5vw, 24px);
-  color: #AD1919;
-  opacity: 0;
-  animation: fadeUp 1s ease forwards, labelPulse 1.8s ease-in-out infinite;
-  animation-delay: 1.1s, 2s;
-}
-
-.link-button {
-  max-width: 402px;
-  width: 75vw;
-  height: 54vw;
-  max-height: 280px;
-  position: absolute;
-  top: 53%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  z-index: 5;
-  background: transparent;
-  user-select: none;
-}
-
-.link-button::after {
-  content: "";
-  position: absolute;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  background: rgba(173, 25, 25, 0.18);
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  animation: sealPulse 1.6s ease-in-out infinite;
+  display: block;
   pointer-events: none;
 }
 
-.link-button:hover::after {
+.link-button {
+  position: absolute;
+  width: 82px;
+  height: 82px;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.link-button span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(173, 25, 25, 0.18);
+  animation: sealPulse 1.6s ease-in-out infinite;
+}
+
+.link-button:hover span {
   background: rgba(173, 25, 25, 0.3);
-  transform: translate(-50%, -50%) scale(1.15);
 }
 
 .link-button:active {
-  transform: translate(-50%, -50%) scale(0.97);
+  transform: translate(-50%, -50%) scale(0.94);
 }
 
-.music-toggle{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  background: white;
-  color: #AD1919;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 999;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  transition: 0.3s ease;
-  user-select: none;
+.invitation-label {
+  font-size: clamp(18px, 4vw, 24px);
+  color: #0e0e0e;
+  margin: 0;
+  opacity: 0;
+  animation: fadeUp 800ms ease forwards, labelPulse 1.9s ease-in-out infinite;
+  animation-delay: 1s, 1.9s;
 }
 
-.music-toggle:hover{
-  transform: scale(1.08);
+.floating-heart {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: clamp(60px, 10vw, 130px);
+  z-index: 1;
+  animation: floatHeart 6s ease-in-out infinite;
+}
+
+.heart-one {
+  top: 8%;
+  left: 8%;
+}
+
+.heart-two {
+  bottom: 8%;
+  right: 8%;
+  animation-delay: 1.4s;
+}
+
+.heart-three {
+  top: 48%;
+  right: 4%;
+  font-size: clamp(44px, 7vw, 90px);
+  animation-delay: 2.2s;
 }
 
 @keyframes containerEntrance {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.94);
   }
   to {
     opacity: 1;
@@ -145,7 +168,7 @@
 @keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-24px);
   }
   to {
     opacity: 1;
@@ -156,7 +179,7 @@
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -167,20 +190,20 @@
 @keyframes envelopeEntrance {
   from {
     opacity: 0;
-    transform: translateY(40px) scale(0.9);
+    transform: translateY(35px) scale(0.9) rotate(-2deg);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1) rotate(0);
   }
 }
 
 @keyframes envelopeFloat {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-12px) rotate(-1deg);
   }
 }
 
@@ -189,17 +212,17 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 }
 
 @keyframes sealPulse {
   0% {
-    transform: translate(-50%, -50%) scale(0.85);
-    opacity: 0.7;
+    transform: scale(0.82);
+    opacity: 0.75;
   }
   70% {
-    transform: translate(-50%, -50%) scale(1.35);
+    transform: scale(1.45);
     opacity: 0;
   }
   100% {
@@ -212,18 +235,33 @@
     transform: translateY(0) rotate(-8deg);
   }
   50% {
-    transform: translateY(-25px) rotate(8deg);
+    transform: translateY(-28px) rotate(8deg);
   }
 }
 
 @media (max-width: 480px) {
-  .greeting-container {
-    width: 92vw;
-    min-height: 88dvh;
+  .greeting-landing {
+    padding: 14px;
   }
 
-  .link-button::after {
-    width: 58px;
-    height: 58px;
+  .greeting-container {
+    min-height: 90dvh;
+  }
+
+  .letter-content {
+    padding: 32px 16px;
+  }
+
+  .envelope-wrap {
+    width: 82vw;
+  }
+
+  .link-button {
+    width: 62px;
+    height: 62px;
+  }
+
+  .heart-three {
+    display: none;
   }
 }
