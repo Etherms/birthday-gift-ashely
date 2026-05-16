@@ -156,15 +156,10 @@ body{
     background:#fffdf7;
     position:relative;
     z-index:2;
-
     padding:42px 28px;
-
     opacity:0;
     transform:scale(0.3);
-
-    box-shadow:
-    0 25px 60px rgba(0,0,0,0.22);
-
+    box-shadow: 0 25px 60px rgb(255 109 109 / 22%);
     animation:
     letterReveal 1.4s ease 1s forwards;
 }
@@ -222,10 +217,10 @@ body{
 .back-link{
     margin-top:28px;
     text-decoration:none;
-    color:white;
+    color:#0e0e0e;
     font-size:22px;
     font-weight:600;
-    border-bottom:2px solid rgba(255,255,255,0.5);
+    border-bottom:2px solid rgba(0, 0, 0, 0.5);
     padding-bottom:4px;
     transition:0.3s ease;
 }
