@@ -1,3 +1,4 @@
+
 *{
     margin:0;
     padding:0;
@@ -27,7 +28,11 @@ body{
     overflow-x:hidden;
 }
 
-/* floating hearts */
+.no-scroll{
+    overflow:hidden;
+}
+
+/* FLOATING HEARTS */
 
 .heart{
     position:fixed;
@@ -87,7 +92,7 @@ body{
     }
 }
 
-/* page */
+/* PAGE */
 
 .page{
     width:100%;
@@ -99,10 +104,10 @@ body{
 
 .title{
     font-family:"Parisienne", cursive;
-    font-size:20px;
+    font-size:72px;
     text-align:center;
     color:#0e0e0e;
-    line-height:0.95;
+    line-height:.95;
     font-weight:400;
     margin-bottom:10px;
 
@@ -119,21 +124,24 @@ body{
     opacity:0;
 }
 
-/* collage */
+/* COLLAGE */
 
 .collage{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:16px;
     width:100%;
+    perspective:1200px;
 }
 
 .photo-card{
     background:#fff8f8;
-    padding:8px 8px 26px;
+    padding:8px 8px 34px;
 
     box-shadow:
-    0 14px 30px rgba(0,0,0,0.24);
+    0 14px 30px rgba(0,0,0,0.24),
+    0 0 0 2px rgba(255,255,255,.9),
+    0 0 0 5px rgba(173,25,25,.10);
 
     position:relative;
     overflow:hidden;
@@ -148,24 +156,80 @@ body{
     animation:photoAppear .9s ease forwards;
     animation-delay:var(--delay);
 
-    transition:.35s ease;
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    -webkit-tap-highlight-color:transparent;
+
+    touch-action:manipulation;
+}
+
+/* CLICKABLE GLOW */
+
+.photo-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    border:2px solid rgba(173,25,25,0);
+    border-radius:14px;
+
+    pointer-events:none;
+
+    transition:.3s ease;
+}
+
+.photo-card:hover::after,
+.photo-card.touched::after{
+    border-color:rgba(173,25,25,.45);
 }
 
 .photo-card:hover{
     transform:
     rotate(0deg)
-    scale(1.03);
+    translateY(-8px)
+    scale(1.05);
+
+    box-shadow:
+    0 24px 50px rgba(0,0,0,0.28),
+    0 0 0 2px rgba(255,255,255,.9),
+    0 0 0 8px rgba(173,25,25,.18);
 }
 
+.photo-card.touched{
+    transform:
+    rotate(0deg)
+    translateY(-8px)
+    scale(1.05);
+}
+
+.photo-card:active{
+    transform:
+    rotate(0deg)
+    scale(.96);
+}
+
+/* TAP ICON */
+
 .photo-card::before{
-    content:"♡";
-    position:absolute;
-    top:10px;
-    right:12px;
-    color:white;
-    font-size:18px;
-    z-index:3;
-    text-shadow:0 2px 10px rgba(0,0,0,0.3);
+content:"♡";
+
+position:absolute;
+top:10px;
+right:12px;
+
+color:white;
+font-size:18px;
+
+z-index:4;
+
+text-shadow:
+0 2px 10px rgba(0,0,0,0.3);
 }
 
 .photo-card img{
@@ -173,6 +237,8 @@ body{
     height:180px;
     object-fit:cover;
     display:block;
+
+    border-radius:8px;
 
     animation:imageFloat 4s ease-in-out infinite;
 }
@@ -189,15 +255,55 @@ body{
     height:220px;
 }
 
-.caption{
-    margin-top:10px;
-    text-align:center;
-    color:#AD1919;
-    font-size:20px;
-    font-weight:700;
+/* TAP BADGE */
+
+.tap-badge{
+position:absolute;
+left:50%;
+bottom:10px;
+
+transform:translateX(-50%);
+
+color:rgba(255,255,255,.88);
+
+font-size:11px;
+letter-spacing:.08em;
+font-weight:600;
+text-transform:uppercase;
+
+padding:3px 8px;
+
+border-radius:999px;
+
+background:
+rgba(0,0,0,.18);
+
+backdrop-filter:blur(6px);
+
+border:
+1px solid rgba(255,255,255,.18);
+
+opacity:.72;
+
+transition:
+opacity .3s ease,
+transform .3s ease,
+background .3s ease;
+text-wrap: nowrap;
+z-index:4;
 }
 
-/* sparkle */
+.photo-card:hover .tap-badge{
+opacity:1;
+
+transform:
+translateX(-50%)
+translateY(-1px);
+
+background:
+rgba(0,0,0,.28);
+}
+/* SPARKLE */
 
 .sparkle{
     position:absolute;
@@ -222,7 +328,7 @@ body{
     animation-delay:1s;
 }
 
-/* back */
+/* BACK */
 
 .back-link{
     display:block;
@@ -247,7 +353,132 @@ body{
     opacity:.7;
 }
 
-/* animations */
+/* LIGHTBOX */
+
+.photo-lightbox{
+    position:fixed;
+    inset:0;
+
+    background:rgba(255, 165, 190, 0.38);
+
+    backdrop-filter:blur(16px);
+
+    z-index:999;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:24px;
+}
+
+.photo-lightbox.active{
+    display:flex;
+    animation:lightboxFade .25s ease forwards;
+}
+
+.lightbox-card{
+    width:min(92vw, 430px);
+
+    background:#fff8f8;
+
+    padding:12px 12px 44px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,0.35);
+
+    position:relative;
+
+    transform:scale(.88) rotate(-1deg);
+
+    animation:popCard .35s ease forwards;
+}
+
+.lightbox-card img{
+    width:100%;
+    max-height:72dvh;
+    object-fit:contain;
+    display:block;
+    border-radius:12px;
+}
+
+.lightbox-count{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:12px;
+
+    text-align:center;
+
+    font-size:22px;
+    font-weight:700;
+
+    color:#AD1919;
+}
+
+.lightbox-close{
+    position:fixed;
+    top:18px;
+    right:18px;
+
+    width:48px;
+    height:48px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#fff8f8;
+
+    color:#AD1919;
+
+    font-size:34px;
+    line-height:1;
+
+    cursor:pointer;
+
+    z-index:1001;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.2);
+}
+
+.lightbox-arrow{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:48px;
+    height:48px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#fff8f8;
+
+    color:#AD1919;
+
+    font-size:42px;
+    line-height:.8;
+
+    cursor:pointer;
+
+    z-index:1001;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.2);
+}
+
+.lightbox-prev{
+    left:18px;
+}
+
+.lightbox-next{
+    right:18px;
+}
+
+/* ANIMATIONS */
 
 @keyframes photoAppear{
 
@@ -311,31 +542,130 @@ body{
     }
 }
 
-/* mobile */
+@keyframes lightboxFade{
+
+    from{
+    opacity:0;
+    }
+
+    to{
+    opacity:1;
+    }
+}
+
+@keyframes popCard{
+
+    to{
+    transform:scale(1) rotate(-1deg);
+    }
+}
+
+@keyframes tapPulse{
+
+    0%,100%{
+    transform:scale(1);
+    }
+
+    50%{
+    transform:scale(1.15);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    body{
+    padding:24px 12px 60px;
+    }
+
+    .page{
+    max-width:100%;
+    }
+
+    .title{
+    font-size:58px;
+    }
+
+    .subtitle{
+    font-size:20px;
+    margin-bottom:28px;
+    }
+
+    .collage{
+    gap:12px;
+    }
+
+    .photo-card{
+    padding:7px 7px 30px;
+    }
+
+    .photo-card img{
+    height:165px;
+    }
+
+    .photo-card.tall img{
+    height:230px;
+    }
+
+    .photo-card.wide img{
+    height:190px;
+    }
+
+    .tap-badge{
+    font-size:10px;
+    bottom:8px;
+    opacity:.65;
+    }
+
+    .lightbox-card{
+    width:94vw;
+    padding:10px 10px 42px;
+    }
+
+    .lightbox-card img{
+    max-height:76dvh;
+    }
+
+    .lightbox-arrow{
+    top:auto;
+    bottom:24px;
+    transform:none;
+    }
+
+    .lightbox-prev{
+    left:22px;
+    }
+
+    .lightbox-next{
+    right:22px;
+    }
+
+    .lightbox-close{
+    top:14px;
+    right:14px;
+    }
+}
 
 @media(max-width:380px){
 
     .title{
-    font-size:50px;
+    font-size:48px;
     }
 
     .subtitle{
-    font-size:19px;
+    font-size:18px;
     }
 
     .photo-card img{
-    height:150px;
+    height:145px;
     }
 
     .photo-card.tall img{
-    height:220px;
+    height:210px;
     }
 
     .photo-card.wide img{
-    height:180px;
-    }
-
-    .caption{
-    font-size:18px;
+    height:175px;
     }
 }
