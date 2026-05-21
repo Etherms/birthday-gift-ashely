@@ -2,7 +2,6 @@ body {
   margin: 0;
   background: #FFC5D3;
   min-height: 100dvh;
-  overflow: hidden;
   position: relative;
 }
 
